@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\userController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +26,9 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/user/profile', function() {
         return view('profile');
     })->name('profile');
+});
+
+
+Route::prefix('admin')->name('admin.')->group(function(){
+    Route::resource('/users', userController::class)->except(['show','create','store']);
 });
