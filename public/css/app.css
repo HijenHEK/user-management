@@ -10904,10 +10904,10 @@ a.text-dark:focus {
 }
 
 .color {
-  width: 1rem;
-  height: 1.1rem;
+  width: 1.2rem;
+  height: 1.2rem;
   border-radius: 100%;
-  border: 3px solid #212529;
+  border: 2px solid #212529;
   cursor: pointer;
 }
 
@@ -10917,13 +10917,13 @@ a.text-dark:focus {
 
 .size {
   width: 1rem;
-  height: 1.3rem;
+  height: 1rem;
   background-color: #212529;
   cursor: pointer;
 }
 
 .short {
-  height: 1rem !important;
+  height: 0.8rem !important;
 }
 
 .users-card .card-header {
