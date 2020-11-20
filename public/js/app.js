@@ -37274,6 +37274,15 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+document.querySelector('.param .color').addEventListener('click', function () {
+  document.querySelector('.table.users-table').classList.toggle('table-dark');
+  document.querySelector('.param .color').classList.toggle('bg-dark');
+});
+document.querySelector('.param .size').addEventListener('click', function () {
+  document.querySelector('.table.users-table').classList.toggle('table-sm');
+  document.querySelector('.param .size').classList.toggle('short');
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

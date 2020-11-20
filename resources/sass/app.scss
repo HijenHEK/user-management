@@ -6,3 +6,43 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+
+
+.color {
+    width: 1rem;
+    height: 1.1rem;
+    border-radius: 100%;
+    border: 3px solid rgb(33,37,41);
+    cursor: pointer;
+}
+
+.bg-dark {
+    background-color :rgb(33,37,41) ;
+}
+
+
+.size {
+    width: 1rem;
+    height: 1.3rem;
+    background-color :rgb(33,37,41) ;
+    cursor: pointer;
+}
+.short {
+    height: 1rem !important;
+}
+
+.users-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.users-card .card-header .param {
+    display: flex;
+    align-items: center;
+
+}
+.users-card .card-header .param>* {
+    margin: 0 0.3rem;
+}
