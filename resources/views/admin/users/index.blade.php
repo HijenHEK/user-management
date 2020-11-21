@@ -4,10 +4,20 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
+            @if (session('message'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('message')}} .
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    
+            @endif
             <div class="card users-card">
                 <div class="card-header">
 
                     <div class="title">Users</div>
+                    
                     <div class="param">
                         <span>color</span>
                         <span class="color bg-dark"></span>
@@ -41,9 +51,14 @@
                                         <small>{{$role}}</small> {{$loop->last ? '' : '|'}}
                                     @endforeach
                                 </td>
-                                <td>
+                                <td class="f">
                                     <i class="btn icon btn-success fa fa-edit"></i>
-                                    <i class="btn icon btn-danger fa fa-times"></i>
+                                    <form action={{route('admin.users.destroy' , $user->id)}} method="post">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn icon btn-danger fa fa-times"></button>
+
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach

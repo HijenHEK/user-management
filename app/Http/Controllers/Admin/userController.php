@@ -89,6 +89,7 @@ class userController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return back()->with('message' , 'user '.$user->name.' was deleted successfully !');
     }
 }

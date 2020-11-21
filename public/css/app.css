@@ -10919,9 +10919,14 @@ a.text-dark:focus {
   background-color: #212529;
 }
 
+.f {
+  display: flex;
+}
+
 .icon {
   line-height: normal !important;
   padding: 0.5rem !important;
+  margin: 0 0.2rem;
 }
 
 .size {

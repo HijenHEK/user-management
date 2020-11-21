@@ -20,10 +20,13 @@
 .bg-dark {
     background-color :rgb(33,37,41) ;
 }
-
+.f {
+    display: flex;
+}
 .icon {
     line-height: normal !important;
     padding: 0.5rem !important;
+    margin: 0 0.2rem;
 }
 .size {
     width: 1rem;
