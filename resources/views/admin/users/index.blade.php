@@ -52,7 +52,9 @@
                                     @endforeach
                                 </td>
                                 <td class="f">
-                                    <i class="btn icon btn-success fa fa-edit"></i>
+                                    <a href="{{route('admin.users.edit' , $user->id)}}">
+                                        <i class="btn icon btn-success fa fa-edit"></i>
+                                    </a>
                                     <form action={{route('admin.users.destroy' , $user->id)}} method="post">
                                         @method('DELETE')
                                         @csrf

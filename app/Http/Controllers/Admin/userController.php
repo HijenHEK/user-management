@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -66,7 +67,10 @@ class userController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('admin.users.edit' , [
+            'roles' => Role::all() ,
+            'user' => $user
+        ]);
     }
 
     /**
@@ -78,7 +82,18 @@ class userController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        // dd('before : ' . $user->roles->pluck('name'));
+
+        $request->validate([
+            'name' => 'min:4|required|string',
+            'email' => 'email|required|unique:users,email,'.$user->id,
+            'roles' => 'required|exists:roles,id'
+        ]);
+        $user->update($request->all());
+        $user->roles()->sync(Request('roles'));
+
+        return back()->with('update-success' , $user->name . 'updated successfully ! ');
+        
     }
 
     /**
