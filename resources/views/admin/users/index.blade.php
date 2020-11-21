@@ -25,7 +25,8 @@
                                 <th scope="col">id</th>
                                 <th scope="col">name</th>
                                 <th scope="col">emaile</th>
-                                <th scope="col">Handle</th>
+                                <th scope="col">Roles</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,7 +36,15 @@
                                 <th scope="row">{{$user->id}}</th>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
-                                <td>N/A</td>
+                                <td>
+                                    @foreach ($user->roles()->get()->pluck('name') as $role)
+                                        <small>{{$role}}</small> {{$loop->last ? '' : '|'}}
+                                    @endforeach
+                                </td>
+                                <td>
+                                    <i class="btn icon btn-success fa fa-edit"></i>
+                                    <i class="btn icon btn-danger fa fa-times"></i>
+                                </td>
                             </tr>
                             @endforeach
 
