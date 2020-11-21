@@ -47,7 +47,7 @@ class User extends Authenticatable
 
     public function hasAnyRole(Array $roles) {
         
-        if(Role::whereIn('name' , $roles)->first()){ 
+        if( $this->roles()->whereIn('name' , $roles)->first()){ 
            return true;
         } 
         return false ;

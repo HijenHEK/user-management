@@ -64,9 +64,9 @@
 
                                     @can('manage-users')
 
-                                    <a class="dropdown-item" href="{{ route('admin.users.index') }}">
-                                        {{ __('Dashboard') }}
-                                    </a>
+                                        <a class="dropdown-item" href="{{ route('admin.users.index') }}">
+                                            {{ __('Dashboard') }}
+                                        </a>
 
                                     @endcan
                                     <a class="dropdown-item" href="{{ route('logout') }}"
