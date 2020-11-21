@@ -1,4 +1,7 @@
 require('./bootstrap');
+var Turbolinks = require("turbolinks")
+window.turbo = Turbolinks.start()
+
 
 
 

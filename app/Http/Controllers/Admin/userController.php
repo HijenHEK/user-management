@@ -90,6 +90,7 @@ class userController extends Controller
             'roles' => 'required|exists:roles,id'
         ]);
         $user->update($request->all());
+        $user->roles()->detach($user->roles);
         $user->roles()->sync(Request('roles'));
 
         return back()->with('update-success' , $user->name . 'updated successfully ! ');
