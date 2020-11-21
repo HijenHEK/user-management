@@ -29,6 +29,6 @@ Route::middleware(['auth'])->group(function() {
 });
 
 
-Route::prefix('admin')->name('admin.')->group(function(){
+Route::prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
     Route::resource('/users', userController::class)->except(['show','create','store']);
 });

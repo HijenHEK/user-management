@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class userController extends Controller
 {
@@ -84,11 +85,15 @@ class userController extends Controller
     {
         // dd('before : ' . $user->roles->pluck('name'));
 
+        
         $request->validate([
             'name' => 'min:4|required|string',
             'email' => 'email|required|unique:users,email,'.$user->id,
             'roles' => 'required|exists:roles,id'
         ]);
+
+         
+
         $user->update($request->all());
         $user->roles()->detach($user->roles);
         $user->roles()->sync(Request('roles'));
@@ -104,7 +109,10 @@ class userController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)
-    {
+    {   
+        if (Gate::denies('delete-users')) {
+            return back()->with('403' , 'you are not allowed to edit users ! please contact your admin');
+        }  
         $user->delete();
         return back()->with('message' , 'user '.$user->name.' was deleted successfully !');
     }
